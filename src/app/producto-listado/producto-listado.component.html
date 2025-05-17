@@ -13,17 +13,21 @@
             <th scope="col">Categoria</th>
             <th scope="col">Precio</th>
             <th scope="col">Stock</th>
+            <th scope="col">Acciones</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let producto of producto">
             <th scope="row" class="text-center">{{producto.idProducto}}</th>
             <td>{{producto.nombreProducto}}</td>
-            
             <td>{{producto.proveedor}}</td>
             <td>{{producto.categoria}}</td>
             <td>{{producto.precio}}</td>
             <td>{{producto.stock}}</td>
+            <td class="text-center">
+              <button (click)="editarProducto(producto.idProducto)"
+              class="btn btn-warning btm-sm me-3">Editar</button>
+            </td>
           </tr>
         </tbody>
       </table>

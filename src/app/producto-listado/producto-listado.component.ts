@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Producto } from '../producto';
 import { ProductoService } from '../producto.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-producto-listado',
@@ -11,7 +12,8 @@ import { ProductoService } from '../producto.service';
 export class ProductoListadoComponent {
   producto: Producto[];
 
-  constructor(private productoServicio: ProductoService){}
+  constructor(private productoServicio: ProductoService,
+    private enrutador: Router){}
 
   ngOnInit(){
     //cargar los productos
@@ -27,5 +29,9 @@ export class ProductoListadoComponent {
       )
     
     )
+  }
+
+  editarProducto(id: number){
+    this.enrutador.navigate(['editar-producto',id])
   }
 }

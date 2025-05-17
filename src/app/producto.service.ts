@@ -17,4 +17,10 @@ export class ProductoService {
   agregarproductos(producto:Producto): Observable<Object>{
     return this.clienteHttp.post(this.urlBackend, producto);
   }
+  obtenerProductosporId(id: number){
+    return this.clienteHttp.get<Producto>(`${this.urlBackend}/${id}`);
+  }
+  editarProducto(id: number, producto:Producto): Observable<object>{
+    return this.clienteHttp.put(`${this.urlBackend}/${id}`, producto);
+  }
 }
